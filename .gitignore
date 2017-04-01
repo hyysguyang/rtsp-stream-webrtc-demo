@@ -1,0 +1,55 @@
+# Exclude css and css map
+
+# Build
+*.class
+*.log
+.demo_data
+logs
+classes
+target
+build
+.gradle
+target-eclipse
+
+# sbt specific
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea
+.idea_modules
+
+# Eclipse
+.classpath
+.project
+.settings
+.checkstyle
+.fbprefs
+
+
+# NetBeans
+nbproject
+
+# Other
+.sonar-ide.properties
+.clover
+proguard_logs
+
+#Android
+gen
+
+
+#Editor Backup Files
+*~
+*.bak

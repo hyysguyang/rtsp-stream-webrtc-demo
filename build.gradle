@@ -1,0 +1,52 @@
+import com.lansent.gradle.Build
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+plugins {
+    id "com.diffplug.gradle.spotless" version "3.0.0"
+    id "com.dorongold.task-tree" version "1.2.2"
+    id "com.jfrog.bintray" version "1.7.3"
+}
+
+project(':launcher') {
+    apply plugin: "java"
+    apply plugin: "com.diffplug.gradle.spotless"
+    apply plugin: 'application'
+}
+
+
+def build = new Build(rootProject)
+build.configAllProject()
+build.configWeb()
+
+project(':launcher') {
+
+    spotless {
+        java {
+            removeUnusedImports()
+            trimTrailingWhitespace()
+            endWithNewline()
+            eclipseFormatFile rootProject.file('src/eclipse/eclipse-formatter-settings.xml')
+
+            paddedCell()
+        }
+    }
+    task format(dependsOn: "spotlessJavaApply") {
+        doLast {
+            println("Format all source code completed.")
+        }
+    }
+    processResources.dependsOn(format)
+
+    mainClassName = "com.lifecosys.demo.Launcher"
+
+}
+
+
