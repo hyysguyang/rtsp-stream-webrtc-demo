@@ -1,0 +1,13 @@
+import org.gradle.script.lang.kotlin.KotlinDependencyExtensionsKt as gsk
+
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.1.1"
+}
+
+dependencies {
+    compile("org.jetbrains.kotlin:kotlin-stdlib:1.1.1")
+    compile("com.yahoo.platform.yui:yuicompressor:2.4.8")
+    compile("commons-io:commons-io:2.4")
+}
+
+gsk.gradleScriptKotlin(repositories)
